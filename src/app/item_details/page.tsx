@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useAppSelector } from "@/redux/hooks";
+import { ProductInterface } from "@/interfaces/product_iterface";
 
 interface Item {
   id: number;
@@ -10,11 +11,11 @@ interface Item {
   image: string;
 }
 
-interface ItemDetailsProps {
-  item: Item;
-}
+// interface ItemDetailsProps {
+//   item: ProductInterface;
+// }
 
-const ItemDetails: React.FC<ItemDetailsProps> = ({ item }) => {
+const ItemDetails: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
   const items = useAppSelector((state) => state.CartActionReducer);
 
