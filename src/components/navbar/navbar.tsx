@@ -8,6 +8,7 @@ import ViewCart from "./components/view_cart";
 import { useEffect, useState } from "react";
 import icon from "../../../public/images/main_icon.png";
 import Image from "next/image";
+import NavCard from "./components/nav_card";
 
 const Navbar: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
