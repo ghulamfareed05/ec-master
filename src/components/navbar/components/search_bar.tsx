@@ -27,10 +27,10 @@ const SearchBar = () => {
     <div>
       <div className="grid lg:grid-cols-2 gap-0 sm:grid-cols-1 md:grid-cols-1">
         <div className=" w-full">
-          <input
+          <input 
             type="text"
             placeholder="Search entire store here..."
-            className="input input-bordered w-full focus:outline-none  rounded-r-none border-r-0 rounded-l-md"
+            className="input input-bordered w-full focus:outline-none  rounded-r-none border-r-0 rounded-1-md"
           />
         </div>
         <div>

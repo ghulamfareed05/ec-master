@@ -8,7 +8,6 @@ import ViewCart from "./components/view_cart";
 import { useEffect, useState } from "react";
 import icon from "../../../public/images/main_icon.png";
 import Image from "next/image";
-import NavCard from "./components/nav_card";
 
 const Navbar: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -69,7 +68,7 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="navbar fixed bg-base-300 items-center justify-center z-10">
-          <div className="w-full">
+          <div className="w-full flex justify-center items-center">
             <div className=" hidden lg:flex">
               <CustomMenu />
             </div>
