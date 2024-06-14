@@ -21,7 +21,7 @@ const TopNavbar = () => {
 
   return (
     <div>
-      <div className="h-8 bg-base-200 hidden lg:flex justify-between items-center">
+      <div className="h-8 bg-white hidden lg:flex justify-between items-center">
         <div className="lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>

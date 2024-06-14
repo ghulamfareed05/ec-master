@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
     <div>
       <div className="w-full" style={navbarStyle}>
         <TopNavbar />
-        <div className="navbar bg-base-100 justify-between ">
+        <div className="navbar bg-white justify-between ">
           <div className="flex lg:hidden">
             <div>
               <Drawer />
@@ -67,8 +67,8 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="navbar fixed bg-base-300 items-center justify-center z-10">
-          <div className="w-full flex justify-center items-center">
+        <div className="navbar fixed bg-white z-10">
+          <div className="w-full flex justify-center h-28 items-center">
             <div className=" hidden lg:flex">
               <CustomMenu />
             </div>

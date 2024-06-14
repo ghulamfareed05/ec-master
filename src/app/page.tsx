@@ -34,7 +34,7 @@ const Home = () => {
   }, [loading]);
 
   return (
-    <div className="mt-36">
+    <div className="mt-56">
       <HeroSection />
       <Divider content="Tranding Products" />
       {loading ? null : <ProductGrid products={products} isLoading={loading} />}

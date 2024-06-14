@@ -30,11 +30,11 @@ const SearchBar = () => {
           <input 
             type="text"
             placeholder="Search entire store here..."
-            className="input input-bordered w-full focus:outline-none  rounded-r-none border-r-0 rounded-1-md"
+            className="input input-bordered w-full focus:outline-none  rounded-r-none border-r-0 rounded-md bg-white"
           />
         </div>
         <div>
-          <select className="hidden lg:flex select select-bordered focus:outline-none w-full max-w-xs rounded-l-none rounded-r-md">
+          <select className="hidden lg:flex select select-bordered focus:outline-none w-full max-w-xs rounded-l-none rounded-r-md bg-white">
             <option>Category</option>
             {categories.map((category) => (
               <option
