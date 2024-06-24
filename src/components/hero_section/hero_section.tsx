@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
     dots: true,
     fade: true,
     infinite: true,
-    speed: 1800,
+    speed: 4000,
     loop:true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
         <Slider {...settings} className="flex justify-center items-center">
       {images.map((src, index) => (
           <div key={index}>
-            <img src={src} alt={`Slide ${index + 1}`} className={`rounded-lg ${styles.imageAnimation} `} />
+            <img src={src} alt={`Slide ${index + 1}`} className={`rounded-lg`} />
           </div>
         ))}
       </Slider>

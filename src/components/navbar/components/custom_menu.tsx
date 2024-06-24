@@ -27,7 +27,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <TbMeat />,
       text: 'Butchers',
-      link: '/',
+      link: generateLink('/products',{category:'Meat'}),
       submenu: [
         {
           heading: 'Beef',
@@ -48,7 +48,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiFruitBowl />,
       text: 'Fruits & Vegetables',
-      link: '/',
+      link: generateLink('/products',{category:'Fruits and Vegetables'}),
       submenu: [
         {
           heading: 'Fruits',
@@ -73,7 +73,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <MdOutlineBakeryDining />,
       text: 'Bakery',
-      link: '/',
+      link: generateLink('/products',{category:'Bakery'}),
       submenu: [
         {
           heading: 'Breads',
@@ -94,7 +94,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <PiBowlFood />,
       text: 'Grocery',
-      link: '/',
+      link: generateLink('/products',{category:'Grocery'}),
       submenu: [
         {
           heading: 'Snacks',
@@ -115,7 +115,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiFrozenOrb />,
       text: 'Dairy & Frozen',
-      link: '/',
+      link: generateLink('/products',{category:'Dairy and Frozen'}),
       submenu: [
         {
           heading: 'Dairy',
@@ -136,7 +136,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiFlour />,
       text: 'Flour & Rice',
-      link: '/',
+      link: generateLink('/products',{category:'Flour and Rice'}),
       submenu: [
         {
           heading: 'Flour',
@@ -157,7 +157,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiHotSpices />,
       text: 'Spices & Seasoning',
-      link: '/',
+      link: generateLink('/products',{category:'Spices and Seasoning'}),
       submenu: [
         {
           heading: 'Spices',
@@ -178,7 +178,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiHealthPotion />,
       text: 'Health, Beauty & Household',
-      link: '/',
+      link: generateLink('/products',{category:'Health and Beauty'}),
       submenu: [
         {
           heading: 'Health',
@@ -206,7 +206,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <GiChickenLeg />,
       text: 'BBQ',
-      link: '/',
+      link: generateLink('/products',{category:'BBQ'}),
       submenu: [
         {
           heading: 'BBQ Essentials',
@@ -220,7 +220,11 @@ const CustomMenu: React.FC = () => {
     
   ]);
 
-
+  function generateLink(pathname: string, query: Record<string, string>) {
+    const url = new URL(pathname, window.location.origin);
+    Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
+    return url.toString();
+  }
 
   
   return (
@@ -237,7 +241,7 @@ const CustomMenu: React.FC = () => {
           />
         ))}
       </div>
-      <div className='relative -top-3 mt-1'><NavCard text={`Offers`} link={`/`} /></div>
+      <div className='relative -top-2 mt-2'><NavCard text={`Offers`} link={`/`} /></div>
     </div>
   );
 };
