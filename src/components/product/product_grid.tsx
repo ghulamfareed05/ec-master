@@ -8,7 +8,168 @@ interface ProductGridProps {
   products: ProductInterface[];
   isLoading: boolean;
 }
-
+const images: ProductInterface[] = [
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    },
+    {
+      id: 1,
+      name: 'Chicken ',
+      images: ['https://www.tariqhalalmeats.com/pub/media/catalog/product/cache/719b970b2b4bfe6c779a0fb32a212f38/p/h/photoroom_20231228_140318.png'],
+      description: 'Mumtaz Lemon Pepper & Herb Wings (1kg)',
+      price: 8.99,
+      units: 1,
+      category: 'Meat',
+      tags: ['chicken','marinated']
+    }
+  ];
 const ProductGrid = ({ products, isLoading }: ProductGridProps) => {
   const dispatcher = useAppDispatch();
   const addProductToCart = (id: string) => {

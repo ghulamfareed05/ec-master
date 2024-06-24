@@ -4,6 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the carousel CSS
 import styles from "./hero_section.module.css";
 import Slider from "react-slick";
+import Image from "next/image";
 import "/node_modules/slick-carousel/slick/slick.css";
 import "/node_modules/slick-carousel/slick/slick-theme.css";
 
@@ -33,7 +34,7 @@ const HeroSection: React.FC = () => {
         <Slider {...settings} className="flex justify-center items-center">
       {images.map((src, index) => (
           <div key={index}>
-            <img src={src} alt={`Slide ${index + 1}`} className={`rounded-lg`} />
+            <Image src={src} width={2000} height={4000} alt={`Slide ${index + 1}`} className={`rounded-lg`} />
           </div>
         ))}
       </Slider>
