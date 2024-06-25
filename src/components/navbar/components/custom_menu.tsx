@@ -221,10 +221,15 @@ const CustomMenu: React.FC = () => {
   ]);
 
   function generateLink(pathname: string, query: Record<string, string>) {
-    const url = new URL(pathname, window.location.origin);
-    Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
-    return url.toString();
+    if (typeof window !== 'undefined') {
+      const url = new URL(pathname, window.location.origin);
+      Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
+      return url.toString();
+    } else {
+      return '';
+    }
   }
+  
 
   
   return (
