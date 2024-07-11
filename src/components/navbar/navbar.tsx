@@ -8,6 +8,8 @@ import ViewCart from "./components/view_cart";
 import { useEffect, useState } from "react";
 import icon from "../../../public/images/main_icon.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import MeatNavbar from "./components/MeatNavbar";
 
 const Navbar: React.FC = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -40,6 +42,8 @@ const Navbar: React.FC = () => {
     paddingTop: scrollingDown ? `${navbarHeight}px` : "0",
   };
 
+  const pathname=usePathname();
+
   return (
     <div>
       <div className="w-full" style={navbarStyle}>
@@ -68,9 +72,9 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="navbar fixed bg-white z-10">
-          <div className="w-full flex justify-center h-28 items-center">
+          <div className={pathname==='/meat'? 'w-full flex justify-center h-20 items-center rounded-md': `w-full flex justify-center h-28 items-center`}>
             <div className=" hidden lg:flex">
-              <CustomMenu />
+              {pathname!='/meat'? <CustomMenu />: <MeatNavbar/>}
             </div>
             <div className="flex-1 lg:hidden">
               <SearchBar />

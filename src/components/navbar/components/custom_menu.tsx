@@ -27,7 +27,7 @@ const CustomMenu: React.FC = () => {
     {
       icon: <TbMeat />,
       text: 'Butchers',
-      link: generateLink('/products',{category:'Meat'}),
+      link: '/meat',
       submenu: [
         {
           heading: 'Beef',

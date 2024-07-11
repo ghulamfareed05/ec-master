@@ -1,0 +1,317 @@
+import { ProductInterface } from "@/interfaces/product_iterface";
+
+const productsData: ProductInterface[] = [
+  // Fresh Meats
+  {
+    id: 1,
+    name: 'Fresh Chicken Breast',
+    images: ['https://png.pngtree.com/png-vector/20240421/ourmid/pngtree-vector-art-of-three-raw-chicken-breasts-on-a-plate-accompanied-png-image_12303628.png'],
+    description: 'Fresh Chicken Breast (1kg)',
+    price: 10.99,
+    units: 1,
+    category: 'Fresh Meats',
+    tags: ['fresh', 'chicken', 'breast']
+  },
+  {
+    id: 2,
+    name: 'Fresh Beef Steak',
+    images: ['https://media.istockphoto.com/id/503817114/photo/fresh-raw-beef-steak-with-spices.jpg?s=612x612&w=0&k=20&c=S7BJUgIvDYs4i04XeftPuYNUlPPtNKu_EJZIXLkv17Q='],
+    description: 'Fresh Beef Steak (1kg)',
+    price: 14.99,
+    units: 1,
+    category: 'Fresh Meats',
+    tags: ['fresh', 'beef', 'steak']
+  },
+  {
+    id: 3,
+    name: 'Fresh Lamb Chops',
+    images: ['https://beta-api.farmersfreshmeat.com/public/storage/images/menu-images/1663787448Lamb-Chops-1.png'],
+    description: 'Fresh Lamb Chops (1kg)',
+    price: 18.99,
+    units: 1,
+    category: 'Fresh Meats',
+    tags: ['fresh', 'lamb', 'chops']
+  },
+  {
+    id: 4,
+    name: 'Fresh Pork Tenderloin',
+    images: ['https://storage.googleapis.com/images-fol-prd-83dd8b8.fol.prd.v8.commerce.mi9cloud.com/product-images/detail/20031900000.jpg'],
+    description: 'Fresh Pork Tenderloin (1kg)',
+    price: 12.99,
+    units: 1,
+    category: 'Fresh Meats',
+    tags: ['fresh', 'pork', 'tenderloin']
+  },
+  {
+    id: 5,
+    name: 'Fresh Turkey Breast',
+    images: ['https://jmbutcher.mt/wp-content/uploads/2020/05/Turkey-Breast.jpg'],
+    description: 'Fresh Turkey Breast (1kg)',
+    price: 11.99,
+    units: 1,
+    category: 'Fresh Meats',
+    tags: ['fresh', 'turkey', 'breast']
+  },
+
+
+  {
+    id: 6,
+    name: 'Marinated Chicken Wings',
+    images: ['https://hips.hearstapps.com/hmg-prod/images/chicken-wing-marinade-horizontal-1548437489.png?crop=0.668xw:1.00xh;0.173xw,0&resize=1200:*'],
+    description: 'Marinated Chicken Wings (1kg)',
+    price: 9.99,
+    units: 1,
+    category: 'Marinated Meats',
+    tags: ['marinated', 'chicken', 'wings']
+  },
+  {
+    id: 7,
+    name: 'Marinated Beef Skewers',
+    images: ['https://www.mygreekdish.com/wp-content/uploads/2021/02/Marinated-Greek-Beef-Souvlaki-Skewers-Beef-Kabobs-ready-to-grill-scaled.jpeg'],
+    description: 'Marinated Beef Skewers (1kg)',
+    price: 13.99,
+    units: 1,
+    category: 'Marinated Meats',
+    tags: ['marinated', 'beef', 'skewers']
+  },
+  {
+    id: 8,
+    name: 'Marinated Lamb Ribs',
+    images: ['https://sweetcaramelsunday.com/wp-content/uploads/Marinated-Lamb-Ribs-300.jpg'],
+    description: 'Marinated Lamb Ribs (1kg)',
+    price: 17.99,
+    units: 1,
+    category: 'Marinated Meats',
+    tags: ['marinated', 'lamb', 'ribs']
+  },
+  {
+    id: 9,
+    name: 'Marinated Pork Chops',
+    images: ['https://kristineskitchenblog.com/wp-content/uploads/2022/05/best-pork-chop-marinade-03.jpg'],
+    description: 'Marinated Pork Chops (1kg)',
+    price: 11.99,
+    units: 1,
+    category: 'Marinated Meats',
+    tags: ['marinated', 'pork', 'chops']
+  },
+  {
+    id: 10,
+    name: 'Marinated Turkey Legs',
+    images: ['https://nkechiajaeroh.com/wp-content/uploads/2022/10/Marinated-Turkey-Legs-main-photo-1.jpg'],
+    description: 'Marinated Turkey Legs (1kg)',
+    price: 10.99,
+    units: 1,
+    category: 'Marinated Meats',
+    tags: ['marinated', 'turkey', 'legs']
+  },
+
+  
+  {
+    id: 11,
+    name: 'Cold Ham Slices',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjQYQsgv1OXlUIHjo1J8prZh_VE7Ea3yNXg&s'],
+    description: 'Cold Ham Slices (1kg)',
+    price: 8.99,
+    units: 1,
+    category: 'Cold Meat',
+    tags: ['cold', 'ham', 'slices']
+  },
+  {
+    id: 12,
+    name: 'Cold Turkey Slices',
+    images: ['https://mortadellahead.com/wp-content/uploads/2022/08/turkey-meat.webp'],
+    description: 'Cold Turkey Slices (1kg)',
+    price: 9.99,
+    units: 1,
+    category: 'Cold Meat',
+    tags: ['cold', 'turkey', 'slices']
+  },
+  {
+    id: 13,
+    name: 'Cold Beef Pastrami',
+    images: ['https://www.allrecipes.com/thmb/gPU0506SZQa2rECUCt-IHSMQ0b8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pastrami-on-rye-876eeb2c2a894bdbb9858232bd3ff1bb.jpg'],
+    description: 'Cold Beef Pastrami (1kg)',
+    price: 12.99,
+    units: 1,
+    category: 'Cold Meat',
+    tags: ['cold', 'beef', 'pastrami']
+  },
+  {
+    id: 14,
+    name: 'Cold Chicken Breast Slices',
+    images: ['https://nourishedbynic.com/wp-content/uploads/2023/10/baked-thin-chicken-breast.jpg'],
+    description: 'Cold Chicken Breast Slices (1kg)',
+    price: 10.99,
+    units: 1,
+    category: 'Cold Meat',
+    tags: ['cold', 'chicken', 'breast']
+  },
+  {
+    id: 15,
+    name: 'Cold Roast Beef',
+    images: ['https://static.onecms.io/wp-content/uploads/sites/19/2013/07/23/cold-roasted-tenderloin-beef-horseradish-oh-x.jpg'],
+    description: 'Cold Roast Beef (1kg)',
+    price: 14.99,
+    units: 1,
+    category: 'Cold Meat',
+    tags: ['cold', 'roast', 'beef']
+  },
+
+
+  {
+    id: 16,
+    name: 'Frozen Chicken Nuggets',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSocnWgGW31yBADdHZKqXTGqTg9bm4az8NTcw&s'],
+    description: 'Frozen Chicken Nuggets (1kg)',
+    price: 6.99,
+    units: 1,
+    category: 'Frozen',
+    tags: ['frozen', 'chicken', 'nuggets']
+  },
+  {
+    id: 17,
+    name: 'Frozen Beef Patties',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFzoYYn-WIkJZXcmeQ6Bp3pMi1EVvh1sUdXg&s'],
+    description: 'Frozen Beef Patties (1kg)',
+    price: 8.99,
+    units: 1,
+    category: 'Frozen',
+    tags: ['frozen', 'beef', 'patties']
+  },
+  {
+    id: 18,
+    name: 'Frozen Lamb Kebabs',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-tdFIY4ltt7-pFvbqtRKhmKNInvryoXrzsQ&s'],
+    description: 'Frozen Lamb Kebabs (1kg)',
+    price: 10.99,
+    units: 1,
+    category: 'Frozen',
+    tags: ['frozen', 'lamb', 'kebabs']
+  },
+  {
+    id: 19,
+    name: 'Frozen Pork Sausages',
+    images: ['https://henderson.gumlet.io/media/catalog/product/cache/54e907f67bba18a324cdba8ff44df011/a/e/aea2f93dca2c67ee84d7f300d507363d.jpg'],
+    description: 'Frozen Pork Sausages (1kg)',
+    price: 7.99,
+    units: 1,
+    category: 'Frozen',
+    tags: ['frozen', 'pork', 'sausages']
+  },
+  {
+    id: 20,
+    name: 'Frozen Turkey Burgers',
+    images: ['https://diestelturkey.com/wp-content/uploads/2019/04/2253143-Burger-box-NEW.jpg'],
+    description: 'Frozen Turkey Burgers (1kg)',
+    price: 9.99,
+    units: 1,
+    category: 'Frozen',
+    tags: ['frozen', 'turkey', 'burgers']
+  },
+
+ 
+  {
+    id: 21,
+    name: 'Kangaroo Steak',
+    images: ['https://ohmydish.com/wp-content/uploads/2015/12/Kangaroo-steak.jpg'],
+    description: 'Kangaroo Steak (1kg)',
+    price: 24.99,
+    units: 1,
+    category: 'Exotic',
+    tags: ['exotic', 'kangaroo', 'steak']
+  },
+  {
+    id: 22,
+    name: 'Ostrich Fillet',
+    images: ['https://www.keziefoods.co.uk/wp-content/uploads/2021/01/Ostrich-Fillets-Raw.jpg'],
+    description: 'Ostrich Fillet (1kg)',
+    price: 29.99,
+    units: 1,
+    category: 'Exotic',
+    tags: ['exotic', 'ostrich', 'fillet']
+  },
+  {
+    id: 23,
+    name: 'Crocodile Tail',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv3VJMeWdJSKGI5pK7K5zb1XznUcW2nXMxpg&s'],
+    description: 'Crocodile Tail (1kg)',
+    price: 34.99,
+    units: 1,
+    category: 'Exotic',
+    tags: ['exotic', 'crocodile', 'tail']
+  },
+  {
+    id: 24,
+    name: 'Buffalo Steak',
+    images: ['https://images.getrecipekit.com/20230602142727-cooked-20and-20sliced-20buffalo-20ny-20strip-20steaks-20.png?width=650&quality=90&'],
+    description: 'Buffalo Steak (1kg)',
+    price: 27.99,
+    units: 1,
+    category: 'Exotic',
+    tags: ['exotic', 'buffalo', 'steak']
+  },
+  {
+    id: 25,
+    name: 'Wild Boar Sausage',
+    images: ['https://www.wildmeat.co.uk/cdn/shop/products/Boar_sauages.jpg?v=1477639022'],
+    description: 'Wild Boar Sausage (1kg)',
+    price: 19.99,
+    units: 1,
+    category: 'Exotic',
+    tags: ['exotic', 'wild', 'boar', 'sausage']
+  },
+
+ 
+  {
+    id: 26,
+    name: 'Chicken Curry',
+    images: ['https://www.foodandwine.com/thmb/8YAIANQTZnGpVWj2XgY0dYH1V4I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/spicy-chicken-curry-FT-RECIPE0321-58f84fdf7b484e7f86894203eb7834e7.jpg'],
+    description: 'Ready Meal: Chicken Curry (500g)',
+    price: 6.99,
+    units: 1,
+    category: 'Ready Meals',
+    tags: ['ready', 'meal', 'chicken', 'curry']
+  },
+  {
+    id: 27,
+    name: 'Beef Lasagna',
+    images: ['https://i0.wp.com/recipesbycarina.com/wp-content/uploads/2018/06/Beef-Lasagne.jpg?fit=4932%2C3288&ssl=1'],
+    description: 'Ready Meal: Beef Lasagna (500g)',
+    price: 7.99,
+    units: 1,
+    category: 'Ready Meals',
+    tags: ['ready', 'meal', 'beef', 'lasagna']
+  },
+  {
+    id: 28,
+    name: 'Lamb Stew',
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTOwLYJqBDBeqJcGvc_fnZXdR5yCDx8lSKCw&s'],
+    description: 'Ready Meal: Lamb Stew (500g)',
+    price: 8.99,
+    units: 1,
+    category: 'Ready Meals',
+    tags: ['ready', 'meal', 'lamb', 'stew']
+  },
+  {
+    id: 29,
+    name: 'Pork Schnitzel',
+    images: ['https://www.jocooks.com/wp-content/uploads/2019/04/pork-schnitzel-1.jpg'],
+    description: 'Ready Meal: Pork Schnitzel (500g)',
+    price: 7.49,
+    units: 1,
+    category: 'Ready Meals',
+    tags: ['ready', 'meal', 'pork', 'schnitzel']
+  },
+  {
+    id: 30,
+    name: 'Turkey Meatloaf',
+    images: ['https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/9/17/0/FNK_Best-Turkey-Meatloaf_H_s4x3.jpg.rend.hgtvcom.616.462.suffix/1568735467631.jpeg'],
+    description: 'Ready Meal: Turkey Meatloaf (500g)',
+    price: 6.49,
+    units: 1,
+    category: 'Ready Meals',
+    tags: ['ready', 'meal', 'turkey', 'meatloaf']
+  }
+];
+
+export default productsData;

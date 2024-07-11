@@ -6,7 +6,7 @@ import { CLientServices } from "@/services/user";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const images: ProductInterface[] = [
+const productsData: ProductInterface[] = [
   {
     id: 1,
     name: 'Chicken',
@@ -378,11 +378,11 @@ const Product: React.FC = () => {
     const fetchData = async () => {
       try {
         if (category) {
-          const filteredProducts = images.filter(product => product.category.toLowerCase() === category.toLowerCase());
+          const filteredProducts = productsData.filter(product => product.category.toLowerCase() === category.toLowerCase());
           setProducts(filteredProducts);
           // const productData = await CLientServices.getProductByCategory(
           //   category.toLowerCase()
-          // );
+          // );                                        //THIS CODE IS TEMORARILY COMMENTED BECAUSE WE ARE USING DUMMY ARRAY DATA
           // setProducts(productData.data.products);
           // console.log(productData.data.products);
         } else {
