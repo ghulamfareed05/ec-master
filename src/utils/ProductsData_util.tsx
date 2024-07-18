@@ -34,13 +34,13 @@ const productsData: ProductInterface[] = [
   },
   {
     id: 4,
-    name: 'Fresh Pork Tenderloin',
-    images: ['https://storage.googleapis.com/images-fol-prd-83dd8b8.fol.prd.v8.commerce.mi9cloud.com/product-images/detail/20031900000.jpg'],
-    description: 'Fresh Pork Tenderloin (1kg)',
+    name: 'Fresh Lamb Shanks  ',
+    images: ['https://zonefresh.com.au/wp-content/uploads/lamb-shanks.png'],
+    description: 'Fresh Lamb Shanks (1kg)',
     price: 12.99,
     units: 1,
     category: 'Fresh Meats',
-    tags: ['fresh', 'pork', 'tenderloin']
+    tags: ['fresh', 'lamb', 'shanks']
   },
   {
     id: 5,
@@ -86,13 +86,13 @@ const productsData: ProductInterface[] = [
   },
   {
     id: 9,
-    name: 'Marinated Pork Chops',
-    images: ['https://kristineskitchenblog.com/wp-content/uploads/2022/05/best-pork-chop-marinade-03.jpg'],
-    description: 'Marinated Pork Chops (1kg)',
+    name: 'Marinated Chicken Leg Piece',
+    images: ['https://savaskitchen.com/wp-content/uploads/2022/10/marinated-baked-chicken-drumsticks.jpg'],
+    description: 'Marinated Chicken Legs (1kg)',
     price: 11.99,
     units: 1,
     category: 'Marinated Meats',
-    tags: ['marinated', 'pork', 'chops']
+    tags: ['marinated', 'chicken', 'leg piece']
   },
   {
     id: 10,
@@ -108,13 +108,13 @@ const productsData: ProductInterface[] = [
   
   {
     id: 11,
-    name: 'Cold Ham Slices',
-    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjQYQsgv1OXlUIHjo1J8prZh_VE7Ea3yNXg&s'],
-    description: 'Cold Ham Slices (1kg)',
+    name: 'Cold Roast Lamb',
+    images: ['https://www.olivado.com/wp-content/uploads/2021/03/cold-slices-of-roast-lamb-with-coriander-jalapeno-yoghurt-2000x2000.jpg'],
+    description: 'Cold Slices of Roast Lamb (1kg)',
     price: 8.99,
     units: 1,
     category: 'Cold Meat',
-    tags: ['cold', 'ham', 'slices']
+    tags: ['cold', 'lamb', 'slices']
   },
   {
     id: 12,
@@ -190,13 +190,13 @@ const productsData: ProductInterface[] = [
   },
   {
     id: 19,
-    name: 'Frozen Pork Sausages',
-    images: ['https://henderson.gumlet.io/media/catalog/product/cache/54e907f67bba18a324cdba8ff44df011/a/e/aea2f93dca2c67ee84d7f300d507363d.jpg'],
-    description: 'Frozen Pork Sausages (1kg)',
+    name: 'Frozen Beef Meat',
+    images: ['https://img.tradeford.com/pimages/l/2/460412.jpg'],
+    description: 'Frozen Beef Meat (1kg)',
     price: 7.99,
     units: 1,
     category: 'Frozen',
-    tags: ['frozen', 'pork', 'sausages']
+    tags: ['frozen', 'beef', 'meat']
   },
   {
     id: 20,
@@ -209,36 +209,35 @@ const productsData: ProductInterface[] = [
     tags: ['frozen', 'turkey', 'burgers']
   },
 
- 
   {
     id: 21,
-    name: 'Kangaroo Steak',
+    name: 'Halal Beef Steak',
     images: ['https://ohmydish.com/wp-content/uploads/2015/12/Kangaroo-steak.jpg'],
-    description: 'Kangaroo Steak (1kg)',
+    description: 'Halal Beef Steak (1kg)',
     price: 24.99,
     units: 1,
     category: 'Exotic',
-    tags: ['exotic', 'kangaroo', 'steak']
+    tags: ['exotic', 'halal', 'beef', 'steak']
   },
   {
     id: 22,
-    name: 'Ostrich Fillet',
+    name: 'Halal Chicken Fillet',
     images: ['https://www.keziefoods.co.uk/wp-content/uploads/2021/01/Ostrich-Fillets-Raw.jpg'],
-    description: 'Ostrich Fillet (1kg)',
+    description: 'Halal Chicken Fillet (1kg)',
     price: 29.99,
     units: 1,
     category: 'Exotic',
-    tags: ['exotic', 'ostrich', 'fillet']
+    tags: ['exotic', 'halal', 'chicken', 'fillet']
   },
   {
     id: 23,
-    name: 'Crocodile Tail',
-    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv3VJMeWdJSKGI5pK7K5zb1XznUcW2nXMxpg&s'],
-    description: 'Crocodile Tail (1kg)',
+    name: 'Lamb Shoulder',
+    images: ['https://ux2cms.imgix.net/images/Smoked-Lamb-Shoulder-2.jpg?auto=compress,format&w=750'],
+    description: 'Halal Lamb Shoulder (1kg)',
     price: 34.99,
     units: 1,
     category: 'Exotic',
-    tags: ['exotic', 'crocodile', 'tail']
+    tags: ['exotic', 'halal', 'lamb', 'shoulder']
   },
   {
     id: 24,
@@ -252,16 +251,14 @@ const productsData: ProductInterface[] = [
   },
   {
     id: 25,
-    name: 'Wild Boar Sausage',
-    images: ['https://www.wildmeat.co.uk/cdn/shop/products/Boar_sauages.jpg?v=1477639022'],
-    description: 'Wild Boar Sausage (1kg)',
+    name: 'Halal Beef Sausage',
+    images: ['https://www.luvele.com/cdn/shop/articles/beef_sausages_04_1024x.png?v=1595380503'],
+    description: 'Halal Beef Sausage (1kg)',
     price: 19.99,
     units: 1,
     category: 'Exotic',
-    tags: ['exotic', 'wild', 'boar', 'sausage']
+    tags: ['exotic', 'halal', 'beef', 'sausage']
   },
-
- 
   {
     id: 26,
     name: 'Chicken Curry',
@@ -294,13 +291,13 @@ const productsData: ProductInterface[] = [
   },
   {
     id: 29,
-    name: 'Pork Schnitzel',
-    images: ['https://www.jocooks.com/wp-content/uploads/2019/04/pork-schnitzel-1.jpg'],
-    description: 'Ready Meal: Pork Schnitzel (500g)',
+    name: 'Chicken Schnitzel',
+    images: ['https://www.jessicagavin.com/wp-content/uploads/2022/08/chicken-schnitzel-21-1200.jpg'],
+    description: 'Ready Meal: Halal Chicken Schnitzel (500g)',
     price: 7.49,
     units: 1,
     category: 'Ready Meals',
-    tags: ['ready', 'meal', 'pork', 'schnitzel']
+    tags: ['ready', 'meal', 'halal', 'chicken', 'schnitzel']
   },
   {
     id: 30,

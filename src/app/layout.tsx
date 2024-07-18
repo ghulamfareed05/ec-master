@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme={"cupcake"}>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <Providers>
           <Navbar />
           <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>

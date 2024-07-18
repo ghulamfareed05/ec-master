@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className="navbar fixed bg-white z-10">
+        <div className={` ${pathname=='/meat'? `bg-zinc-900 h-2`:``} navbar fixed bg-white z-10`}>
           <div className={pathname==='/meat'? 'w-full flex justify-center h-20 items-center rounded-md': `w-full flex justify-center h-28 items-center`}>
             <div className=" hidden lg:flex">
               {pathname!='/meat'? <CustomMenu />: <MeatNavbar/>}
