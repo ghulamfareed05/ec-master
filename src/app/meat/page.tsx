@@ -1,31 +1,50 @@
 "use client";
 import Divider from "@/components/divider/divider";
 import ProductGrid from "@/components/product/product_grid";
-import { ProductInterface } from "@/interfaces/product_iterface";
+import { ProductInterface } from "@/interfaces/products_interface";
 import { CLientServices } from "@/services/user";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import productsData from "@/utils/ProductsData_util";
+import axios from "axios";
 
 const Product: React.FC = () => {
   const params = useSearchParams();
-  const category = params.get("category");
+  const subcategory = params.get("subcategory");
+  const type = params.get("type");
+  const variant = params.get("variant");
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [decodeText, setdecodeText] = useState("")
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (category) {
-          const filteredProducts = productsData.filter(product => product.category.toLowerCase() === category.toLowerCase());
-          setProducts(filteredProducts);
+        if (subcategory) {
+          // const filteredProducts = productsData.filter(product => product.category.toLowerCase() === category.toLowerCase());
+          // setProducts(filteredProducts);  //IF USING DUMMY DATA
+
           // const productData = await CLientServices.getProductByCategory(
           //   category.toLowerCase()
           // );                                        //THIS CODE IS TEMORARILY COMMENTED BECAUSE WE ARE USING DUMMY ARRAY DATA
           // setProducts(productData.data.products);
           // console.log(productData.data.products);
-        } else {
-            setProducts(productsData);
+          const response =await axios.get(`http://localhost:3000/product/getProductsBySubcategory?subcategory=${subcategory}`);
+          setProducts(response.data);
+          setdecodeText(decodeURIComponent(subcategory));
+        } 
+        else if(type){
+          const response =await axios.get(`http://localhost:3000/product/getProductsByType?type=${type}`);
+          setProducts(response.data);
+          setdecodeText(decodeURIComponent(type));
+        }
+        else if(variant){
+          const response =await axios.get(`http://localhost:3000/product/getProductsByVariant?variant=${variant}`);
+          setProducts(response.data);
+          setdecodeText(decodeURIComponent(variant));
+        }
+        else {
+            // setProducts(productsData);
           console.error("Category is null");
         }
       } catch (error) {
@@ -36,13 +55,13 @@ const Product: React.FC = () => {
     };
 
     fetchData(); // Always fetch data on component mount or when category changes
-  }, [category]); // Include category in the dependency array
+  }, [subcategory,type,variant]); // Include category in the dependency array
 
   return (
     
     <div>
       <div className="mt-36">
-      <Divider content={category} />
+      <Divider content={decodeText} />
       <ProductGrid products={products} isLoading={loading} />
     </div>
     </div>

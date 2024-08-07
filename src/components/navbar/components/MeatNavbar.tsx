@@ -1,100 +1,95 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarComponent from './MeatNavbarComponent';
+import { Subcategory } from '@/interfaces/meatnavbar_interface';
+import axios from 'axios';
 
-const meatMenu = [
-  {
-    text: 'Fresh Meats',
-    link: './meat',
-    menu: [
-      {
-        category: 'Poultry',
-        link:'/meat',
-        submenu: [
-          { text: 'Chicken', link: './meat' },
-          { text: 'Offal', link: './meat' },
-          { text: 'Turkey', link: './meat' },
-          { text: 'Burger & Sausages', link: './meat' },
-        ],
-      },
-      {
-        category: 'Lamb',
-        link:'/meat',
-        submenu: [
-          { text: 'Lamb', link: './meat' },
-          { text: 'Mutton', link: './meat' },
-          { text: 'Goat', link: './meat' },
-          { text: 'Offal', link: './meat' },
-          { text: 'Burger & Sausages', link: './meat' },
-        ],
-      },
-      {
-        category: 'Beef',
-        link:'/meat',
-        submenu: [
-          { text: 'Beef', link: './meat' },
-          { text: 'Veal', link: './meat' },
-          { text: 'Offal', link: './meat' },
-          { text: 'Wagyu', link: './meat' },
-          { text: '28 Day Aged', link: './meat' },
+// const meatMenu:Subcategory[] = [
+//   {
+//     subcategoryName: 'Fresh Meats',
+//     types: [
+//       {
+//         typeName: 'Poultry',
+//         variants: [
+//           { variantName: 'Chicken' },
+//           { variantName: 'Offal'},
+//           { variantName: 'Turkey'},
+//           { variantName: 'Burger & Sausages'},
+//         ],
+//       },
+//       {
+//         typeName: 'Lamb',
+//         variants: [
+//           { variantName: 'Lamb' },
+//           { variantName: 'Mutton' },
+//           { variantName: 'Goat' },
+//           { variantName: 'Offal' },
+//           { variantName: 'Burger & Sausages' },
+//         ],
+//       },
+//       {
+//         typeName: 'Beef',
+//         variants: [
+//           { variantName: 'Beef'},
+//           { variantName: 'Veal'},
+//           { variantName: 'Offal' },
+//           { variantName: 'Wagyu' },
+//           { variantName: '28 Day Aged' },
 
-        ],
-      },
-    ],
-  },
-  {
-    text: 'Marinated Meats',
-    link: './meat',
-    menu: [
-      {
-        category: 'Chicken Marination',
-        link:'/meat',
-      },
-      {
-        category: 'Lamb Marination',
-        link:'/meat',
-      },
-      {
-        category: 'Beef Marination',
-        link:'/meat',
-      },
-    ],
-  },
-  {
-    text: 'Cold Meat',
-    link: './meat',
-    menu: [
-      {
-        category: 'Burger & Sausages',
-        link:'/meat',
-      },
-    ],
-  },
-  {
-    text: 'Frozen',
-    link: './meat',
-    menu: [
-      {
-        category: 'Burnage Halal Frozen',
-        link:'/meat',
-      },
-      {
-        category: 'Frozen',
-        link:'/meat',
-       
-      },
-    ],
-  },
-  {
-    text: 'Exotic',
-    link: './meat',
-  },
-  {
-    text: 'Ready Meals',
-    link: './meat',
-  },
-];
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     subcategoryName: 'Marinated Meats',
+//     types: [
+//       {
+//         typeName: 'Chicken Marination',
+//       },
+//       {
+//         typeName: 'Lamb Marination',
+//       },
+//       {
+//         typeName: 'Beef Marination',
+//       },
+//     ],
+//   },
+//   {
+//     subcategoryName: 'Cold Meat',
+//     types: [
+//       {
+//         typeName: 'Burger & Sausages',
+//       },
+//     ],
+//   },
+//   {
+//     subcategoryName: 'Frozen',
+//     types: [
+//       {
+//         typeName: 'Burnage Halal Frozen',
+//       },
+//       {
+//         typeName: 'Frozen',       
+//       },
+//     ],
+//   },
+//   {
+//     subcategoryName: 'Exotic',
+//   },
+//   {
+//     subcategoryName: 'Ready Meals',
+//   },
+// ];
 
 const MeatNavbar: React.FC = () => {
+  const [meatMenu, setmeatMenu] = useState<Subcategory[]>([]);
+  const fetchMenu =async ()=>{
+    const response =await axios.get('http://localhost:3000/subcategories/getSubcategoriesForMenu');
+    setmeatMenu(response.data);
+  }
+  useEffect(() => {
+    fetchMenu();
+  }, [])
+  
   return (
     <div>
       <div className='flex justify-around items-center gap-6'>

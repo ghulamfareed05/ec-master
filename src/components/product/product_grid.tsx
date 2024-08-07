@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { useAppDispatch } from "@/redux/hooks";
 import { onItemAdded } from "@/redux/features/global_actions";
-import { ProductInterface } from "@/interfaces/product_iterface";
+import { ProductInterface } from "@/interfaces/products_interface";
 
 interface ProductGridProps {
   products: ProductInterface[];
@@ -61,7 +61,7 @@ const ProductGrid = ({ products, isLoading }: ProductGridProps) => {
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title">
-                      {product.name}!
+                      {product.productName}!
                       <div className="badge badge-secondary">NEW</div>
                     </h2>
                     <p>

@@ -4,7 +4,7 @@ import HeroSection from "@/components/hero_section/hero_section";
 import ProductGrid from "@/components/product/product_grid";
 import React, { Suspense, useEffect, useState } from "react";
 import { useAppSelector } from "@/redux/hooks";
-import { ProductInterface } from "@/interfaces/product_iterface";
+import { ProductInterface } from "@/interfaces/products_interface";
 import { CLientServices } from "@/services/user";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -18,8 +18,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await axios.get("https://e-com-backend-1zsb.onrender.com");
-        const productData = await CLientServices.getAllProducts();
+        // await axios.get("https://e-com-backend-1zsb.onrender.com");
+        // const productData = await CLientServices.getAllProducts();
+        const productData=await axios.get('http://localhost:3000/product');
         setProducts(productData.data);
       } catch (error) {
         console.error("Error fetching products:", error);

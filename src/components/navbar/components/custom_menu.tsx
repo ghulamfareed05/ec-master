@@ -1,218 +1,209 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbMeat } from 'react-icons/tb';
 import { GiChickenLeg, GiFrozenOrb, GiHotSpices, GiFlour, GiHealthPotion, GiFruitBowl } from 'react-icons/gi';
 import { MdOutlineBakeryDining } from 'react-icons/md';
 import { PiBowlFood } from 'react-icons/pi';
 import NavCard from './nav_card';
+import axios from 'axios';
 
-interface SubmenuItem {
-  text: string;
-  link: string;
+interface Type {
+  typeName: string;
 }
 
-interface SubmenuCategory {
-  heading: string;
-  items: SubmenuItem[];
+interface Subcategory {
+  subcategoryName: string;
+  types: Type[];
 }
 
-interface MenuItem {
-  icon: React.ReactNode;
-  text: string;
-  link: string;
-  submenu?: SubmenuCategory[];
+interface Category {
+  id?:number;
+  icon?: React.ReactNode;
+  categoryName:string
+  subcategories?: Subcategory[];
 }
 
 const CustomMenu: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([
+  const [menuItems, setMenuItems] = useState<Category[]>([
     {
       icon: <TbMeat />,
-      text: 'Butchers',
-      link: '/meat',
-      submenu: [
+      categoryName: 'Butchers',
+      subcategories: [
         {
-          heading: 'Beef',
-          items: [
-            { text: 'Beef Steak', link: '/' },
-            { text: 'Beef Ribs', link: '/' },
+          subcategoryName: 'Beef',
+          types: [
+            { typeName:'Beef Ribs' },
+            { typeName:'Beef Shoulder'},
           ],
         },
         {
-          heading: 'Chicken',
-          items: [
-            { text: 'Chicken Breast', link: '/' },
-            { text: 'Chicken Wings', link: '/' },
+          subcategoryName: 'Chicken',
+          types: [
+            { typeName:'Chicken Legs'},
+            { typeName:'Chickne Wings'},
           ],
         },
       ],
     },
     {
       icon: <GiFruitBowl />,
-      text: 'Fruits & Vegetables',
-      link: generateLink('/products',{category:'Fruits and Vegetables'}),
-      submenu: [
+      categoryName: 'Fruits & Vegetables',
+      subcategories: [
         {
-          heading: 'Fruits',
-          items: [
-            { text: 'Apples', link: '/' },
-            { text: 'Bananas', link: '/' },
-            { text: 'Grapes', link: '/' },
-            { text: 'Oranges', link: '/' },
+          subcategoryName: 'Fruits',
+          types: [
+            { typeName:'Apples'},
+            { typeName:'Bananas'},
+            { typeName:'Grapes'},
+            { typeName:'Oranges'},
           ],
         },
         {
-          heading: 'Vegetables',
-          items: [
-            { text: 'Tomatoes', link: '/' },
-            { text: 'Cucumbers', link: '/' },
-            { text: 'Carrots', link: '/' },
-            { text: 'Peppers', link: '/' },
+          subcategoryName: 'Vegetables',
+          types: [
+            { typeName:'Tomatoes'},
+            { typeName:'Cucumber'},
+            { typeName:'Carrots'},
+            { typeName:'Brocolli'},
           ],
         },
       ],
     },
     {
       icon: <MdOutlineBakeryDining />,
-      text: 'Bakery',
-      link: generateLink('/products',{category:'Bakery'}),
-      submenu: [
+      categoryName: 'Bakery',
+      subcategories: [
         {
-          heading: 'Breads',
-          items: [
-            { text: 'Whole Grain Bread', link: '/' },
-            { text: 'Sourdough', link: '/' },
+          subcategoryName: 'Breads',
+          types: [
+            { typeName: 'Whole Grain Bread' },
+            { typeName: 'Sourdough' },
           ],
         },
         {
-          heading: 'Pastries',
-          items: [
-            { text: 'Croissants', link: '/' },
-            { text: 'Danishes', link: '/' },
+          subcategoryName: 'Pastries',
+          types: [
+            { typeName: 'Croissants' },
+            { typeName: 'Danishes'},
           ],
         },
       ],
     },
     {
       icon: <PiBowlFood />,
-      text: 'Grocery',
-      link: generateLink('/products',{category:'Grocery'}),
-      submenu: [
+      categoryName: 'Grocery',
+      subcategories: [
         {
-          heading: 'Snacks',
-          items: [
-            { text: 'Chips', link: '/' },
-            { text: 'Cookies', link: '/' },
+          subcategoryName: 'Snacks',
+          types: [
+            { typeName: 'Chips' },
+            { typeName: 'Cookies'},
           ],
         },
         {
-          heading: 'Beverages',
-          items: [
-            { text: 'Soda', link: '/' },
-            { text: 'Juice', link: '/' },
+          subcategoryName: 'Beverages',
+          types: [
+            { typeName: 'Soda' },
+            { typeName: 'Juice' },
           ],
         },
       ],
     },
     {
       icon: <GiFrozenOrb />,
-      text: 'Dairy & Frozen',
-      link: generateLink('/products',{category:'Dairy and Frozen'}),
-      submenu: [
+      categoryName: 'Dairy & Frozen',
+      subcategories: [
         {
-          heading: 'Dairy',
-          items: [
-            { text: 'Milk', link: '/' },
-            { text: 'Cheese', link: '/' },
+          subcategoryName: 'Dairy',
+          types: [
+            { typeName: 'Milk' },
+            { typeName: 'Cheese' },
           ],
         },
         {
-          heading: 'Frozen',
-          items: [
-            { text: 'Frozen Pizza', link: '/' },
-            { text: 'Ice Cream', link: '/' },
+          subcategoryName: 'Frozen',
+          types: [
+            { typeName: 'Frozen Pizza' },
+            { typeName: 'Ice Cream' },
           ],
         },
       ],
     },
     {
       icon: <GiFlour />,
-      text: 'Flour & Rice',
-      link: generateLink('/products',{category:'Flour and Rice'}),
-      submenu: [
+      categoryName: 'Flour & Rice',
+      subcategories: [
         {
-          heading: 'Flour',
-          items: [
-            { text: 'All-purpose Flour', link: '/' },
-            { text: 'Whole Wheat Flour', link: '/' },
+          subcategoryName: 'Flour',
+          types: [
+            { typeName: 'All-purpose Flour' },
+            { typeName: 'Whole Wheat Flour' },
           ],
         },
         {
-          heading: 'Rice',
-          items: [
-            { text: 'Basmati Rice', link: '/' },
-            { text: 'Jasmine Rice', link: '/' },
+          subcategoryName: 'Rice',
+          types: [
+            { typeName: 'Basmati Rice'  },
+            { typeName: 'Jasmine Rice'  },
           ],
         },
       ],
     },
     {
       icon: <GiHotSpices />,
-      text: 'Spices & Seasoning',
-      link: generateLink('/products',{category:'Spices and Seasoning'}),
-      submenu: [
+      categoryName: 'Spices & Seasoning',
+      subcategories: [
         {
-          heading: 'Spices',
-          items: [
-            { text: 'Pepper', link: '/' },
-            { text: 'Turmeric', link: '/' },
+          subcategoryName: 'Spices',
+          types: [
+            { typeName: 'Pepper' },
+            { typeName: 'Turmeric' },
           ],
         },
         {
-          heading: 'Seasonings',
-          items: [
-            { text: 'Italian Seasoning', link: '/' },
-            { text: 'BBQ Seasoning', link: '/' },
+          subcategoryName: 'Seasonings',
+          types: [
+            { typeName: 'Italian Seasoning'},
+            { typeName: 'BBQ Seasoning' },
           ],
         },
       ],
     },
     {
       icon: <GiHealthPotion />,
-      text: 'Health, Beauty & Household',
-      link: generateLink('/products',{category:'Health and Beauty'}),
-      submenu: [
+      categoryName: 'Health, Beauty & Household',
+      subcategories: [
         {
-          heading: 'Health',
-          items: [
-            { text: 'Vitamins', link: '/' },
-            { text: 'Supplements', link: '/' },
+          subcategoryName: 'Health',
+          types: [
+            { typeName: 'Vitamins'},
+            { typeName: 'Supplements'},
           ],
         },
         {
-          heading: 'Beauty',
-          items: [
-            { text: 'Skincare', link: '/' },
-            { text: 'Haircare', link: '/' },
+          subcategoryName: 'Beauty',
+          types: [
+            { typeName: 'Skincare'},
+            { typeName: 'Haircare'},
           ],
         },
         {
-          heading: 'Household',
-          items: [
-            { text: 'Cleaning Supplies', link: '/' },
-            { text: 'Paper Products', link: '/' },
+          subcategoryName: 'Household',
+          types: [
+            { typeName: 'Cleaning Supplies'},
+            { typeName: 'Paper Products'},
           ],
         },
       ],
     },
     {
       icon: <GiChickenLeg />,
-      text: 'BBQ',
-      link: generateLink('/products',{category:'BBQ'}),
-      submenu: [
+      categoryName: 'BBQ',
+      subcategories: [
         {
-          heading: 'BBQ Essentials',
-          items: [
-            { text: 'Charcoal', link: '/' },
-            { text: 'BBQ Sauce', link: '/' },
+          subcategoryName: 'BBQ Essentials',
+          types: [
+            { typeName: 'Charcoal',},
+            { typeName: 'BBQ Sauce',},
           ],
         },
       ],
@@ -220,17 +211,29 @@ const CustomMenu: React.FC = () => {
     
   ]);
 
-  function generateLink(pathname: string, query: Record<string, string>) {
-    if (typeof window !== 'undefined') {
-      const url = new URL(pathname, window.location.origin);
-      Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
-      return url.toString();
-    } else {
-      return '';
+  // function generateLink(pathname: string, query: Record<string, string>) {
+  //   if (typeof window !== 'undefined') {
+  //     const url = new URL(pathname, window.location.origin);
+  //     Object.keys(query).forEach(key => url.searchParams.append(key, query[key]));
+  //     return url.toString();
+  //   } else {
+  //     return '';
+  //   }
+  // }
+  
+  const fetchMenu=async ()=>{
+    try {
+      const response =await axios.get('http://localhost:3000/categories/getCategoriesForMenu');
+      setMenuItems(response.data);
+    } catch (error) {
+      
     }
   }
-  
 
+  useEffect(() => {
+    fetchMenu();
+  }, [])
+  
   
   return (
     <div className=" flex flex-row justify-center items-center gap-5">
@@ -240,13 +243,12 @@ const CustomMenu: React.FC = () => {
           <NavCard
             key={index}
             icon={item.icon}
-            text={item.text}
-            link={item.link}
-            submenu={item.submenu}
+            categoryName={item.categoryName}
+            subcategories={item.subcategories}
           />
         ))}
       </div>
-      <div className='relative -top-2 mt-2'><NavCard text={`Offers`} link={`/`} /></div>
+      <div className='relative -top-2 mt-2'><NavCard categoryName={`Offers`} /></div>
     </div>
   );
 };
