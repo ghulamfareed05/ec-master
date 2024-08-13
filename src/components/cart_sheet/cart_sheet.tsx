@@ -52,7 +52,7 @@ const CartSheet: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
         console.log(cart.map((cart) => cart.id));
         const products = await Promise.all(
           cart.map(async (cart) => {
-            const p = await CLientServices.getProductById(cart.id);
+            const p = await CLientServices.getProductById(Number(cart.id));
             return {
               ...p.data,
               quantity: cart.count,
