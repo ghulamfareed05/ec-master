@@ -1,9 +1,10 @@
 import { CLientServices } from "@/services/user";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface Category {
-  id: string;
-  name: string;
+  id: number;
+  categoryName: string;
 }
 
 const SearchBar = () => {
@@ -13,7 +14,8 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await CLientServices.getAllCategories();
+        // const response = await CLientServices.getAllCategories();
+        const response =await axios.get(`http://localhost:3000/categories`);
         setCategories(response.data);
         setLoading(false);
       } catch (error) {
@@ -42,7 +44,7 @@ const SearchBar = () => {
                 value={category.id}
                 className="text-body dark:text-bodydark"
               >
-                {category.name.toUpperCase()}
+                {category.categoryName.toUpperCase()}
               </option>
             ))}
           </select>

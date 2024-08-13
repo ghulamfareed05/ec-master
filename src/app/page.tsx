@@ -19,8 +19,8 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // await axios.get("https://e-com-backend-1zsb.onrender.com");
-        // const productData = await CLientServices.getAllProducts();
-        const productData=await axios.get('http://localhost:3000/product');
+        const productData = await CLientServices.getAllProducts();
+        // const productData=await axios.get('http://localhost:3000/product');
         setProducts(productData.data);
       } catch (error) {
         console.error("Error fetching products:", error);

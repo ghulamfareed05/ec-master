@@ -8,118 +8,41 @@ import { GiChickenLeg, GiFrozenOrb, GiHotSpices, GiFlour, GiHealthPotion, GiFrui
 import { MdOutlineBakeryDining } from 'react-icons/md';
 import { PiBowlFood } from 'react-icons/pi';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import { CLientServices } from '@/services/user';
 
-interface SubmenuItem {
-  text: string;
-  link: string;
+interface Type {
+  typeName: string;
 }
 
-interface SubmenuCategory {
-  heading: string;
-  items: SubmenuItem[];
+interface Subcategory {
+  subcategoryName: string;
+  types?: Type[];
 }
 
-interface MenuItem {
-  icon: React.ReactNode;
-  text: string;
-  link: string;
-  submenu?: SubmenuCategory[];
+interface Category {
+  icon?: React.ReactNode;
+  categoryName: string;
+  subcategories?: Subcategory[];
 }
 
 const Drawer: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([
-    { icon: <TbMeat />, text: 'Butchers', link: '/', submenu: [] },
-    { icon: <GiFruitBowl />, text: 'Fruits & Vegetables', link: '/', submenu: [] },
-    { icon: <MdOutlineBakeryDining />, text: 'Bakery', link: '/', submenu: [] },
-    { icon: <PiBowlFood />, text: 'Grocery', link: '/', submenu: [] },
-    { icon: <GiFrozenOrb />, text: 'Dairy & Frozen', link: '/', submenu: [] },
-    { icon: <GiFlour />, text: 'Flour & Rice', link: '/', submenu: [] },
-    { icon: <GiHotSpices />, text: 'Spices & Seasoning', link: '/', submenu: [] },
-    { icon: <GiHealthPotion />, text: 'Health, Beauty & Household', link: '/', submenu: [] },
-    { icon: <GiChickenLeg />, text: 'BBQ', link: '/', submenu: [] },
-    { icon: null, text: 'Offers', link: '/', submenu: [] }
+  const [menuItems, setMenuItems] = useState<Category[]>([
   ]);
 
-  const [currentCategory, setCurrentCategory] = useState<MenuItem | null>(null);
-  const [currentSubcategory, setCurrentSubcategory] = useState<SubmenuCategory | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<Category | null>(null);
+  const [currentSubcategory, setCurrentSubcategory] = useState<Subcategory | null>(null);
 
   useEffect(() => {
-    const dummyData = [
-      {
-        category: 'Butchers',
-        submenu: [
-          { heading: 'Beef', items: [{ text: 'Ground Beef', link: '/' }, { text: 'Steak', link: '/' }] },
-          { heading: 'Chicken', items: [{ text: 'Drumsticks', link: '/' }, { text: 'Breasts', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Fruits & Vegetables',
-        submenu: [
-          { heading: 'Fruits', items: [{ text: 'Apples', link: '/' }, { text: 'Bananas', link: '/' }] },
-          { heading: 'Vegetables', items: [{ text: 'Tomatoes', link: '/' }, { text: 'Cucumbers', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Bakery',
-        submenu: [
-          { heading: 'Bread', items: [{ text: 'White Bread', link: '/' }, { text: 'Whole Wheat Bread', link: '/' }] },
-          { heading: 'Pastries', items: [{ text: 'Croissants', link: '/' }, { text: 'Muffins', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Grocery',
-        submenu: [
-          { heading: 'Canned Goods', items: [{ text: 'Tomato Sauce', link: '/' }, { text: 'Beans', link: '/' }] },
-          { heading: 'Snacks', items: [{ text: 'Chips', link: '/' }, { text: 'Nuts', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Dairy & Frozen',
-        submenu: [
-          { heading: 'Dairy', items: [{ text: 'Milk', link: '/' }, { text: 'Cheese', link: '/' }] },
-          { heading: 'Frozen Foods', items: [{ text: 'Ice Cream', link: '/' }, { text: 'Frozen Pizza', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Flour & Rice',
-        submenu: [
-          { heading: 'Flour', items: [{ text: 'All-Purpose Flour', link: '/' }, { text: 'Whole Wheat Flour', link: '/' }] },
-          { heading: 'Rice', items: [{ text: 'Basmati', link: '/' }, { text: 'Jasmine', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Spices & Seasoning',
-        submenu: [
-          { heading: 'Spices', items: [{ text: 'Cumin', link: '/' }, { text: 'Turmeric', link: '/' }] },
-          { heading: 'Seasonings', items: [{ text: 'Salt', link: '/' }, { text: 'Pepper', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Health, Beauty & Household',
-        submenu: [
-          { heading: 'Health', items: [{ text: 'Vitamins', link: '/' }, { text: 'Supplements', link: '/' }] },
-          { heading: 'Beauty', items: [{ text: 'Shampoo', link: '/' }, { text: 'Conditioner', link: '/' }] }
-        ]
-      },
-      {
-        category: 'BBQ',
-        submenu: [
-          { heading: 'Grills', items: [{ text: 'Charcoal Grill', link: '/' }, { text: 'Gas Grill', link: '/' }] },
-          { heading: 'Accessories', items: [{ text: 'Tongs', link: '/' }, { text: 'Spatula', link: '/' }] }
-        ]
-      },
-      {
-        category: 'Offers',
-        submenu: []
+    try {
+      const fetchMenu=async()=>{
+        const response =await CLientServices.generateMenu();
+        setMenuItems(response.data);
       }
-    ];
+      fetchMenu();
+    } catch (error) {
+      alert(error);
+    }
 
-    const updatedMenuItems = menuItems.map(item => {
-      const submenuData = dummyData.find((submenu: any) => submenu.category === item.text);
-      return submenuData ? { ...item, submenu: submenuData.submenu } : item;
-    });
-
-    setMenuItems(updatedMenuItems);
   }, []);
 
   return (
@@ -155,7 +78,7 @@ const Drawer: React.FC = () => {
                 <div className="flex items-center justify-between cursor-pointer relative -left-1 h-12 hover:bg-gray-200  ">
                       <div className='flex items-center justify-center gap-2'>
                         <div className='textred text-xl'>{item.icon}</div>
-                        <div >{item.text}</div>
+                        <div >{item.categoryName.toUpperCase()}</div>
                       </div>
                       <FaChevronRight className='textred text-sm'/>
                 </div>
@@ -169,10 +92,10 @@ const Drawer: React.FC = () => {
                     <span>Back</span>
                   </div>
                 </li>
-                {currentCategory.submenu?.map((category, catIndex) => (
-                  <li key={catIndex} onClick={() => setCurrentSubcategory(category)}>
+                {currentCategory.subcategories?.map((categoryName, catIndex) => (
+                  <li key={catIndex} onClick={() => setCurrentSubcategory(categoryName)}>
                     <div className="flex items-center justify-between gap-2 cursor-pointer h-12 hover:bg-gray-200">
-                      <span>{category.heading}</span>
+                      <span>{categoryName.subcategoryName.toUpperCase()}</span>
                       <FaChevronRight />
                     </div>
                   </li>
@@ -187,11 +110,11 @@ const Drawer: React.FC = () => {
                     <span>Back</span>
                   </div>
                 </li>
-                {currentSubcategory.items.map((subItem, subIndex) => (
+                {currentSubcategory.types?.map((subItem, subIndex) => (
                   <li key={subIndex}>
-                    <Link href={subItem.link}>
+                    <Link href={{pathname:'/products',query:{type:encodeURIComponent(subItem.typeName)}}}>
                       <div className="flex items-center justify-between gap-2 cursor-pointer hover:tracking-wider hover:text-red-800 hover:underline transition-all ease-in-out duration-300 ">
-                        {subItem.text}
+                        {subItem.typeName.toUpperCase()}
                       </div>
                     </Link>
                   </li>
@@ -206,3 +129,15 @@ const Drawer: React.FC = () => {
 };
 
 export default Drawer;
+
+
+// { icon: <TbMeat />, categoryName: 'Butchers', subcategories: [] },
+// { icon: <GiFruitBowl />, categoryName: 'Fruits & Vegetables', subcategories: [] },
+// { icon: <MdOutlineBakeryDining />, categoryName: 'Bakery', subcategories: [] },
+// { icon: <PiBowlFood />, categoryName: 'Grocery', subcategories: [] },
+// { icon: <GiFrozenOrb />, categoryName: 'Dairy & Frozen',  subcategories: [] },
+// { icon: <GiFlour />, categoryName: 'Flour & Rice',  subcategories: [] },
+// { icon: <GiHotSpices />, categoryName: 'Spices & Seasoning',  subcategories: [] },
+// { icon: <GiHealthPotion />, categoryName: 'Health, Beauty & Household',  subcategories: [] },
+// { icon: <GiChickenLeg />, categoryName: 'BBQ',  subcategories: [] },
+// { icon: null, categoryName: 'Offers',  subcategories: [] }

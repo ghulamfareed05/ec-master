@@ -5,8 +5,6 @@ import { ProductInterface } from "@/interfaces/products_interface";
 import { CLientServices } from "@/services/user";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import productsData from "@/utils/ProductsData_util";
-import axios from "axios";
 
 const Product: React.FC = () => {
   const params = useSearchParams();
@@ -29,22 +27,23 @@ const Product: React.FC = () => {
           // );                                        //THIS CODE IS TEMORARILY COMMENTED BECAUSE WE ARE USING DUMMY ARRAY DATA
           // setProducts(productData.data.products);
           // console.log(productData.data.products);
-          const response =await axios.get(`http://localhost:3000/product/getProductsBySubcategory?subcategory=${subcategory}`);
+          const response =await CLientServices.getProductsBySubcategory(subcategory.toLowerCase());
           setProducts(response.data);
           setdecodeText(decodeURIComponent(subcategory));
         } 
         else if(type){
-          const response =await axios.get(`http://localhost:3000/product/getProductsByType?type=${type}`);
+          const response =await CLientServices.getProductsByType(type.toLowerCase());
           setProducts(response.data);
           setdecodeText(decodeURIComponent(type));
         }
         else if(variant){
-          const response =await axios.get(`http://localhost:3000/product/getProductsByVariant?variant=${variant}`);
+          const response =await CLientServices.getProductsByVariant(variant.toLowerCase());
           setProducts(response.data);
           setdecodeText(decodeURIComponent(variant));
         }
         else {
-            // setProducts(productsData);
+          const response = await CLientServices.getProductsByCategory("butchers");
+          setProducts(response.data);
           console.error("Category is null");
         }
       } catch (error) {

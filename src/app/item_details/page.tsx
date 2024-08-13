@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { ProductInterface } from "@/interfaces/product_iterface";
 import { CLientServices } from "@/services/user";
 import { useSearchParams } from "next/navigation";
+import axios from "axios";
 
 const ItemDetails: React.FC = () => {
   const params = useSearchParams();
@@ -16,7 +17,8 @@ const ItemDetails: React.FC = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await CLientServices.getProductById(id as string);
+        const response = await CLientServices.getProductById(Number(id));
+        // const response = await axios.get(`http://localhost:3000/product/getProductById/${id}`);
         setProduct(response.data);
         setIsLoading(false);
       } catch (error) {

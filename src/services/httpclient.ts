@@ -43,6 +43,44 @@ export class HttpClient {
     }
   }
 
+  static async generateMenu(url:string){
+    try {
+      const response = await axios.get(this.baseUrl + url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response?.status === 200) {
+        console.log(response.data);
+        return { data: response.data };
+      } else {
+        return { error: response?.data?.error };
+      }
+    } catch (e) {
+      return { error: e };
+    }
+  }
+
+  static async generateSubMenu(url:string){
+    try {
+      const response = await axios.get(this.baseUrl + url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response?.status === 200) {
+        console.log(response.data);
+        return { data: response.data };
+      } else {
+        return { error: response?.data?.error };
+      }
+    } catch (e) {
+      return { error: e };
+    }
+  }
+
   static async login(url: string, data: any) {
     try {
       const response = await axios.post(this.baseUrl + url, data, {
@@ -129,7 +167,7 @@ export class HttpClient {
       return { error: e };
     }
   }
-  static async getProductByCategory(url: string) {
+  static async getProductsByCategory(url: string) {
     try {
       const response = await axios.get(this.baseUrl + url, {
         headers: {
@@ -147,4 +185,59 @@ export class HttpClient {
       return { error: e };
     }
   }
+  static async getProductsBySubcategory(url: string) {
+    try {
+      const response = await axios.get(this.baseUrl + url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response?.status === 200) {
+        console.log(response.data);
+        return { data: response.data };
+      } else {
+        return { error: response?.data?.error };
+      }
+    } catch (e) {
+      return { error: e };
+    }
+  }
+  static async getProductsByType(url: string) {
+    try {
+      const response = await axios.get(this.baseUrl + url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response?.status === 200) {
+        console.log(response.data);
+        return { data: response.data };
+      } else {
+        return { error: response?.data?.error };
+      }
+    } catch (e) {
+      return { error: e };
+    }
+  }
+  static async getProductsByVariant(url: string) {
+    try {
+      const response = await axios.get(this.baseUrl + url, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response?.status === 200) {
+        console.log(response.data);
+        return { data: response.data };
+      } else {
+        return { error: response?.data?.error };
+      }
+    } catch (e) {
+      return { error: e };
+    }
+  }
+
 }
